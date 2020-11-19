@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using UserManagement.MVC.Models;
 
 namespace UserManagement.MVC.Controllers
 {
+    [Authorize(Roles = "Admin, Moderator")]
     public class UserRolesController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

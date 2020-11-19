@@ -14,6 +14,8 @@ namespace UserManagement.MVC.Data
             : base(options)
         {
         }
+
+        public DbSet<Book> Books { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -52,6 +54,7 @@ namespace UserManagement.MVC.Data
             {
                 entity.ToTable("UserTokens");
             });
+
         }
     }
 }
