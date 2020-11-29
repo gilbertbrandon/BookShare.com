@@ -24,8 +24,8 @@ namespace UserManagement.MVC.Data
             {
                 UserName = "superadmin",
                 Email = "superadmin@gmail.com",
-                FirstName = "Mukesh",
-                LastName = "Murugan",
+                FirstName = "Bat",
+                LastName = "Man",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };
@@ -34,7 +34,7 @@ namespace UserManagement.MVC.Data
                 var user = await userManager.FindByEmailAsync(defaultUser.Email);
                 if (user == null)
                 {
-                    await userManager.CreateAsync(defaultUser, "123Pa$$word.");
+                    await userManager.CreateAsync(defaultUser, "Admin123!");
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Basic.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Moderator.ToString());
                     await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Admin.ToString());
