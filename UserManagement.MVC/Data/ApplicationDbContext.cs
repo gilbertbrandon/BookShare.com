@@ -56,5 +56,6 @@ namespace UserManagement.MVC.Data
             });
 
         }
+        public DbSet<UserManagement.MVC.Models.ContactUs> ContactUs { get; set; }
     }
 }

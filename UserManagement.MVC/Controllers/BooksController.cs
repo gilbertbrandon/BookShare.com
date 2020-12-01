@@ -43,6 +43,7 @@ namespace UserManagement.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public IActionResult Upsert()
         {
             if (ModelState.IsValid)
