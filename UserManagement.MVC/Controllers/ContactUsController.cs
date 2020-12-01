@@ -59,7 +59,7 @@ namespace UserManagement.MVC.Models
             {
                 _context.Add(contactUs);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create));
             }
             return View(contactUs);
         }
