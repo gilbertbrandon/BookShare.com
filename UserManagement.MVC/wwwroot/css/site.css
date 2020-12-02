@@ -70,6 +70,27 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+.feed-back{
+    position: fixed;
+    top: 400px;
+    text-decoration: none;
+}
+.button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+}
+.button:hover {
+    background: red;
+    color: #fff;
+}
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 15px;
+}
 
 /*for tab control*/
 div.login-logout-tab div.card-header {
@@ -91,4 +112,4 @@ div.card-content {
 }
 div.login-form-icon {
     text-align: center;
-}  
+}

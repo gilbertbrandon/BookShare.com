@@ -21,11 +21,14 @@ function loadDataTable() {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Books/BookDetails?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
-                            View
+                        <a href="/Books/Upsert?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
+                            Edit
                         </a>
                         &nbsp;
-                      
+                        <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
+                            onclick=Delete('/books/Delete?id='+${data})>
+                            Delete
+                        </a>
                         </div>`;
                 }, "width": "40%"
             }

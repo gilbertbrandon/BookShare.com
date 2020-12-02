@@ -1,0 +1,86 @@
+﻿@model UserManagement.MVC.Models.Book
+
+<img src="http://faithhogan.com/wp-content/uploads/2016/03/Books-banner.png" object-fit: scale-down;" style="width: 100%; height: auto;"/>
+
+<br/>
+
+
+<div class="border container" style="padding:30px;">
+	<h4>Book Details</h4>
+	<hr />
+	<dl class="row">
+		@if (Model.Id != 0)
+		{
+			<input type="hidden" asp-for="Id" />
+		}
+		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+		<div>
+			<dt class="col-sm-2">
+				<label asp-for="Name"></label>
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Name)
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</dd>
+		</div>
+		<div>
+			<dt class="col-sm-2">
+				<label asp-for="Author"></label>
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Author)
+				<span asp-validation-for="Author" class="text-danger"></span>
+			</dd>
+		</div>
+		<div>
+			<dt class="col-sm-2">
+				<label asp-for="ISBN"></label>
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.ISBN)
+				<span asp-validation-for="ISBN" class="text-danger"></span>
+			</dd>
+		</div>
+		<div>
+			<dt class="col-sm-2">
+				<label asp-for="Description"></label>
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Description)
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</dd>
+		</div>
+		<div>
+			<dt class="col-sm-2">
+				<label asp-for="Date"></label>
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Date)
+				<span asp-validation-for="Date" class="text-danger"></span>
+			</dd>
+		</div>
+		<div>
+			<dt class="col-sm-2">
+				<label asp-for="UploadedBy"></label>
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.UploadedBy)
+				<span asp-validation-for="UploadedBy" class="text-danger"></span>
+			</dd>
+		</div>
+		<hr />
+
+	</dl>
+	<div>
+		<br />
+		<hr />
+		<div class="col-3">
+			<a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+		</div>
+	</div>
+
+</div>
+
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}

@@ -24,7 +24,27 @@ namespace UserManagement.MVC.Controllers
         {
             return View();
         }
+        public IActionResult AdminIndex()
+        {
+            return View();
+        }
         public IActionResult Upsert(int? id)
+        {
+            Book = new Book();
+            if (id == null)
+            {
+                //create
+                return View(Book);
+            }
+            //update
+            Book = _db.Books.FirstOrDefault(u => u.Id == id);
+            if (Book == null)
+            {
+                return NotFound();
+            }
+            return View(Book);
+        }
+        public IActionResult BookDetails(int? id)
         {
             Book = new Book();
             if (id == null)
@@ -45,6 +65,26 @@ namespace UserManagement.MVC.Controllers
         [ValidateAntiForgeryToken]
         
         public IActionResult Upsert()
+        {
+            if (ModelState.IsValid)
+            {
+                if (Book.Id == 0)
+                {
+                    //create
+                    _db.Books.Add(Book);
+                }
+                else
+                {
+                    _db.Books.Update(Book);
+                }
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(Book);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult BookDetails()
         {
             if (ModelState.IsValid)
             {

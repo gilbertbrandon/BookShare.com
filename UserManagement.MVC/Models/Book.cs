@@ -22,6 +22,8 @@ namespace UserManagement.MVC.Models
 
         public string UploadedBy {get; set;}
 
-     
+        public string Description { get; set; }
+
+
     }
 }
