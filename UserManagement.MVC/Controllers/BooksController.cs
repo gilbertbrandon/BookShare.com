@@ -44,6 +44,22 @@ namespace UserManagement.MVC.Controllers
             }
             return View(Book);
         }
+        public IActionResult AdminUpsert(int? id)
+        {
+            Book = new Book();
+            if (id == null)
+            {
+                //create
+                return View(Book);
+            }
+            //update
+            Book = _db.Books.FirstOrDefault(u => u.Id == id);
+            if (Book == null)
+            {
+                return NotFound();
+            }
+            return View(Book);
+        }
         public IActionResult BookDetails(int? id)
         {
             Book = new Book();
@@ -79,6 +95,27 @@ namespace UserManagement.MVC.Controllers
                 }
                 _db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            return View(Book);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AdminUpsert()
+        {
+            if (ModelState.IsValid)
+            {
+                if (Book.Id == 0)
+                {
+                    //create
+                    _db.Books.Add(Book);
+                }
+                else
+                {
+                    _db.Books.Update(Book);
+                }
+                _db.SaveChanges();
+                return RedirectToAction("AdminIndex");
             }
             return View(Book);
         }

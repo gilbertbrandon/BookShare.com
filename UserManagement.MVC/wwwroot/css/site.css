@@ -81,10 +81,7 @@ body {
     padding: 10px 15px;
     border: none;
 }
-.button:hover {
-    background: red;
-    color: #fff;
-}
+
 #navbar a {
     color: #fff;
     text-decoration: none;
